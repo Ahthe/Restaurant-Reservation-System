@@ -3,47 +3,51 @@
 <head>
     <meta charset="utf-8" />
     <style>
-        body{ border:solid black 3px;}
-        #contain{
-            margin-left: 25%; 
-            margin-right: 25%; 
-           
+        body h1 { 
+            border:solid black 3px;
         }
-    
-         #publish{
-        float: left;
-        width: 50%
+        .container {
+              margin: 10px;
+              align-content: center;
+              text-align: center;
         }
-        #description{
-        float: left;
-        width: 50%;
-        
+        .container h2 {
+            text-decoration: underline;
+        }
+        .published {
+            float: left;
+            width: 50%;
+        }
+        .description {
+            float: left;
+            width: 50%;
         } 
     </style>
     <title>StarServ Team Blog</title>
 </head>
 <body>
    
-   <div id=contain> 
-    <h1 style="text-align: center">StarServ Team Blog</h1>
-    
-       <div id=publish>
-       <h2>Date Published:</h2>
-       </div>
-       <div id=description>
-       <h2>Description:</h2>
-       </div>
-      
-
-    </div> 
-    
    
-    
-    
-    
-    
-    
-    
-    
+    <h1 style="text-align: center">StarServ Team Blog</h1>
+
+    <!--Blog Header-->
+    <div class="container">
+        <div class="published">
+            <h2>Date Published</h2>
+        </div>
+        <div class="description">
+            <h2>Description</h2>
+        </div>
+    </div>
+    <!--First Blog Entry-->
+    <div class="container">
+        <div class="published">
+            <p>27 Jan 23</p>
+        </div>
+        <div class="description">
+            <p>Our first blog update! So far, we have finished our draft of the SRS document and have gotten our website published to copper.</p>
+        </div>
+
+    </div>
     </body>
 </html>
