@@ -11,6 +11,7 @@
         <div>
             <h1>STARSERV</h1>
             <a href="TeamBlog.html">Team Blog</a>
+            <img src="logo.png" alt="Logo for StarServ">
         </div>
     </form>
 </body>
