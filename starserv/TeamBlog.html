@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <style>
+        body{
+            background-color:#ADD8E6;
+        }
         body h1 { 
             border:solid black 3px;
         }
@@ -10,17 +13,33 @@
               margin: 10px;
               align-content: center;
               text-align: center;
+           
         }
         .container h2 {
             text-decoration: underline;
         }
-        .published {
+        .published-head {
             float: left;
             width: 50%;
+            
+        }
+        .description-head {
+            float: left;
+            width: 50%;
+        } 
+          .published {
+            float: left;
+            width: 50%;
+            border: solid black 2px;
+            height: 55px;
+            
         }
         .description {
+            
             float: left;
-            width: 50%;
+            width: 48%;
+           border: solid black 2px;
+            height: 55px;
         } 
     </style>
     <title>StarServ Team Blog</title>
@@ -32,22 +51,24 @@
 
     <!--Blog Header-->
     <div class="container">
-        <div class="published">
+        <div class="published-head">
             <h2>Date Published</h2>
         </div>
-        <div class="description">
+        <div class="description-head">
             <h2>Description</h2>
         </div>
     </div>
     <!--First Blog Entry-->
-    <div class="container">
-        <div class="published">
-            <p>27 Jan 23</p>
+    <div class="container"  >
+        <div class="published" >
+            <p>27 January 2023</p>
         </div>
         <div class="description">
             <p>Our first blog update! So far, we have finished our draft of the SRS document and have gotten our website published to copper.</p>
         </div>
 
     </div>
+    
+    
     </body>
 </html>
