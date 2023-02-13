@@ -8,35 +8,17 @@
         }
         body h1 { 
             border:solid black 3px;
-        }
-        .container {
-            margin: 10px;
-            align-content: center;
-            text-align: center;
-            /*border-style: solid;*/
-        }
-        .container h2 {
-            text-decoration: underline;
-        }
-        .published-head {
-            float: left;
-            width: 50%;
-            
-        }
-        .description-head {
-            float: left;
-            width: 50%;
+            background-color:#FFFAA0 ;
         } 
-        .published {
-            float: left;
-            width: 50%;           
-            
+        
+        table, th, td {
+            border:3px solid black;
+            background-color: #FFFAA0;
+            border-collapse: collapse;
+            }
+        td{
+            padding-right: 15px;
         }
-        .description { 
-            float: left;
-            width: 50%;
-            
-        } 
     </style>
     <title>StarServ Team Blog</title>
 </head>
@@ -46,62 +28,62 @@
     <h1 style="text-align: center">StarServ Team Blog</h1>
 
     <!--Blog Header-->
-    <div class="container">
-        <div class="published-head">
-            <h2>Date Published</h2>
-        </div>
-        <div class="description-head">
-            <h2>Description</h2>
-        </div>
-    </div>
+    <table class="container">
+    <tr>
+        <th class="published-head">Date Published</th>
+        <th class="description-head">Description</th>
+        
+    </tr>
+    
     <!--1st Blog Entry-->
-    <div class="container">
-        <div class="published">
+        <tr>
+        <td class="published">
             <p>27 January 2023</p>
-        </div>
-        <div class="description">
+        </td>
+        <td class="description">
             <p>Our first blog update! So far, we have finished our draft of the SRS document and have gotten our website published to copper.</p>
-        </div>
-    </div>
+        </td>
+    </tr>
 
 
     <!--2nd Blog Entry-->
-    <div class="container">
-        <div class="published">
+    <tr>
+        <td class="published">
             <p>6 February 23</p>
-        </div>
-        <div class="description">
+        </td>
+        <td class="description">
             <p>
                 In week 4 of the semester, the Star-serv.co team was able to get a jump upcoming assignments.
                 Before beginning any of the new assigments, we first reviewed and edited the final verision of our SRS document. Then, Jess began working on
                 our first press release, while the rest of the team began working on the draft of our preliminary schedule.
             </p>
-        </div>
-    </div>
+        </td>
+    </tr>
 
     <!--3rd Blog Entry-->
-    <div class="container">
-        <div class="published">
+    <tr>
+        <td class="published">
             <p>13 Februray 23</p>
-        </div>
-        <div class="description">
+        </td>
+        <td class="description">
             <p>
                 In week 5 of the semester, the Star-serv.co team began developing a preliminary schedule for the project and produced our first press release. 
                 Along with this, we also began the design of the database our project will be using to keep track of 
                 customers, reservations and avaliability. 
             </p>
-        </div>
-    </div>
+        </td>
+    </tr>
     <!--4th Blog Entry-->
-    <div class="container">
-        <div class="published">
+    <tr>
+        <td class="published">
             <p></p>
-        </div>
-        <div class="description">
+        </td>
+        <td class="description">
             <p>
 
             </p>
-        </div>
-    </div>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

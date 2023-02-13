@@ -4,13 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <style>.logo{float: right;}</style>
     <title>StarServ</title>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <h1>STARSERV</h1>
-            <a href="TeamBlog.html">Team Blog</a>
+            <a href="TeamBlog.html" class="logo">Team Blog</a>
             <img src="logo.png" alt="Logo for StarServ">
         </div>
     </form>
