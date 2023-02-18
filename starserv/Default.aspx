@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="starserv.Default" %>
+﻿<!--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="starserv.Default" %> -->
 
 <!DOCTYPE html>
 
@@ -12,7 +12,7 @@
         <div>
             <h1>STARSERV</h1>
             <a href="TeamBlog.html" class="logo">Team Blog</a>
-            <img src="logo.png" alt="Logo for StarServ">
+            <img src="logo.png" alt="Logo for StarServ"/>
         </div>
     </form>
 </body>
