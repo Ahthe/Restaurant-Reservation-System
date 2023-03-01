@@ -9,6 +9,7 @@ namespace starserv
 {
     public class RestuarantLayoutDB
     {
+        /*Got the base of this code from textbook page 620*/
         public static List<RestaurantLayout> GetLayout()
         {
             List<RestaurantLayout> layoutList = new List<RestaurantLayout>();
@@ -25,6 +26,7 @@ namespace starserv
                     {
                         restaurantlayout = new RestaurantLayout();
                         restaurantlayout.DateAdded = dr["DateAdded"].ToString();
+                        restaurantlayout.IsActive = int.Parse(dr["IsActive"].ToString());
                         restaurantlayout.NumChairsPerTable = int.Parse(dr["NumChairsPerTable"].ToString());
                         restaurantlayout.NumTables = int.Parse(dr["NumTables"].ToString());
                         layoutList.Add(restaurantlayout);
@@ -45,6 +47,7 @@ namespace starserv
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("DateAdded", restaurantLayout.DateAdded);
+                    cmd.Parameters.AddWithValue("IsActive", restaurantLayout.IsActive);
                     cmd.Parameters.AddWithValue("NumChairsPerTable", restaurantLayout.NumChairsPerTable);
                     cmd.Parameters.AddWithValue("NumTables", restaurantLayout.NumTables);
                     con.Open();
