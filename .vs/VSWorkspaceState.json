@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\starserv"
   ],
+  "SelectedNode": "\\starserv\\starserv.csproj",
   "PreviewInSolutionExplorer": false
 }
