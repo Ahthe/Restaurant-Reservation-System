@@ -67,12 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Avaliability.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="RestaurantLayout.aspx" />
     <Content Include="TeamBlog.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Avaliability.aspx.cs">
+      <DependentUpon>Avaliability.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Avaliability.aspx.designer.cs">
+      <DependentUpon>Avaliability.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantLayout.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
