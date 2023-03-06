@@ -15,7 +15,7 @@ namespace starserv
         }
 
         // Code to change a table to taken when customer hits button
-        protected void btnConfirmReservation(object sender, EventArgs e)
+        protected void btnConfirmReservation_Click(object sender, EventArgs e)
         {
             if (IsValid)
             {
@@ -40,6 +40,12 @@ namespace starserv
                         "Message: " + ex.Message;
                 }
             }
+        }
+        //Change the gridview when the calendar data is changed. 
+        protected void CalDateSelect_SelectionChanged(object sender, EventArgs e)
+        {
+            // Create some type of method that would call a method here that would do a SQL
+            // Query with the new date. 
         }
     }
 }
