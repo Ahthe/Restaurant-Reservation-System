@@ -39,7 +39,15 @@
                     <asp:CheckBoxField DataField="Taken" HeaderText="Taken" SortExpression="Taken" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SQLTableAvailability" runat="server" ConnectionString="<%$ ConnectionStrings:starservConnectionString %>" SelectCommand="SELECT * FROM [RestaurantTables] ORDER BY [TableDate], [TableHour]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SQLTableAvailability" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:starservConnectionString %>" 
+                SelectCommand="SELECT * FROM [RestaurantTables] WHERE TableDate >= @SelectedDate ORDER BY [TableDate], [TableHour]"
+          
+                >
+                <SelectParameters>
+                    <asp:Parameter Name="SelectedDate" Type="DateTime" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         </div>
         <br /><br />
         <asp:Label ID="lblConfirmationError" runat="server" Text=""></asp:Label>

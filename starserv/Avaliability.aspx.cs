@@ -44,8 +44,26 @@ namespace starserv
         //Change the gridview when the calendar data is changed. 
         protected void CalDateSelect_SelectionChanged(object sender, EventArgs e)
         {
-            // Create some type of method that would call a method here that would do a SQL
-            // Query with the new date. 
+            // Get the new selected date
+            DateTime dateTime = calDateSelect.SelectedDate;
+
+            //Get the parameters 
+            var parameters = SQLTableAvailability.SelectParameters;
+
+            //Set the parameter to the new selection
+            parameters["SelectedDate"].DefaultValue = dateTime.ToString();
+            
+            //Call method to update the data in the gridview (I think databind might work?)
+            try
+            {
+                // I think this might work 
+                gvAvailability.DataBind();
+            }
+            catch(Exception ex)
+            {
+                lblConfirmationError.Text = "A database error has occured." +
+                        "Message: " + ex.Message;
+            }
         }
     }
 }
