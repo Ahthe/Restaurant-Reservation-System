@@ -57,3 +57,7 @@ C:\Users\josephjm2023\OneDrive - University of Mount Union\CSC492-TeamProject\st
 C:\Users\josephjm2023\OneDrive - University of Mount Union\CSC492-TeamProject\starserv\obj\Release\starserv.csproj.CopyComplete
 C:\Users\josephjm2023\OneDrive - University of Mount Union\CSC492-TeamProject\starserv\obj\Release\starserv.dll
 C:\Users\josephjm2023\OneDrive - University of Mount Union\CSC492-TeamProject\starserv\obj\Release\starserv.pdb
+C:\Users\josephjm2023\Desktop\CSC492-TeamProject\starserv\obj\Release\starserv.csproj.AssemblyReference.cache
+C:\Users\josephjm2023\Desktop\CSC492-TeamProject\starserv\obj\Release\starserv.csproj.CoreCompileInputs.cache
+C:\Users\josephjm2023\Desktop\CSC492-TeamProject\starserv\obj\Release\starserv.dll
+C:\Users\josephjm2023\Desktop\CSC492-TeamProject\starserv\obj\Release\starserv.pdb

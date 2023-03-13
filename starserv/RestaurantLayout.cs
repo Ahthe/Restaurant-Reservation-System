@@ -5,7 +5,7 @@ using System.Web;
 
 namespace starserv
 {
-    public class RestaurantLayout
+    public partial class RestaurantLayout
     {
         public String DateAdded { get; set; }
         public int IsActive { get; set; }
