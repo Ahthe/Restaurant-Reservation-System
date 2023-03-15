@@ -11,8 +11,11 @@
     <form id="form1" runat="server">
         <div>
             <h1>STARSERV</h1>
-            <a href="TeamBlog.html" class="logo">Team Blog</a>
-            <img src="logo.png" alt="Logo for StarServ"/></div>
+            <a href="TeamBlog.html">Team Blog</a>
+            <a href="Avaliability.aspx">Availability page</a>
+            <img src="logo.png" class="logo" alt="Logo for StarServ"/>
+
+        </div>
     </form>
 </body>
 </html>
