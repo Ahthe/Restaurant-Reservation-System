@@ -29,7 +29,7 @@
         <div>
             <asp:GridView ID="gvAvailability" runat="server" AutoGenerateColumns="False" 
                 DataKeyNames="TableID" DataSourceID="SQLTableAvailability" Height="477px" Width="1291px"
-                OnSelectedIndexChanged="">
+                OnSelectedIndexChanged="CalDateSelect_SelectionChanged">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="TableID" HeaderText="TableID" InsertVisible="False" ReadOnly="True" SortExpression="TableID" />
