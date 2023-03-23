@@ -4,9 +4,12 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace starserv
 {
@@ -43,15 +46,47 @@ namespace starserv
                 // Get the row that is currently selected
                 GridViewRow row = gvAvailability.SelectedRow;
                 //Get the index of that row
-                String tableID = row.Cells[0].Text;
+                int reservationID = Convert.ToInt32(row.Cells[0].ToString());
                 //Get the parameters needed for the update
                 var parameters = sdsAvailabilityGV.UpdateParameters;
                 //Update the id to match the current id 
-                parameters["TableID"].DefaultValue = tableID.ToString();
+                parameters["ReservationID"].DefaultValue = reservationID.ToString();
+                /*string taken = "1";
+                string connectionString = ConfigurationManager.ConnectionStrings["starservConnectionString"].ToString();
+                string query = "UPDATE RestaurantTables SET taken = @Taken where tableID = @TableID";
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Taken", taken);
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }*/
                 //Update taken to be taken instead of avaliable 
                 parameters["Taken"].DefaultValue = "1";
                 sdsAvailabilityGV.Update();
-                   
+                sdsAvailabilityGV.DataBind();
+
+
+                /* string connectionString = ConfigurationManager.ConnectionStrings["starservConnectionString"].ConnectionString;
+                 SqlConnection conn = new SqlConnection(connectionString);
+                 conn.Open();
+                 string SID = lblSID.Text;
+                 MySqlCommand cmd = new MySqlCommand("update student Set Name = @Name, Address = @Address, Mobile = @Mobile, Email = @Email where SID = @SID", conn);  
+                 cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                 cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
+                 cmd.Parameters.AddWithValue("@Mobile", txtMobile.Text);
+                 cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
+                 cmd.Parameters.AddWithValue("SID", SID);
+                 cmd.ExecuteNonQuery();
+                 cmd.Dispose();
+                 ShowMessage("Student Data update Successfully......!");
+                 GridViewStudent.EditIndex = -1;
+                 BindGridView(); btnUpdate.Visible = false;*/
+
+
             }
             catch (Exception ex)
             {
@@ -84,6 +119,11 @@ namespace starserv
                 lblConfirmationError.Text = "A database error has occured." +
                         "Message: " + ex.Message;
             }
+        }
+
+        protected void gvAvailability_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
         }
     }
 }
