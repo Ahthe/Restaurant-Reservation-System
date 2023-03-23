@@ -29,6 +29,7 @@
         <div>
             <asp:GridView ID="gvAvailability" runat="server" AutoGenerateColumns="False" DataSourceID="sdsAvailabilityGV" Height="477px" Width="1291px" OnRowCommand="gvAvailability_RowCommand">
                 <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="TableID" HeaderText="TableID" SortExpression="TableID" />
                     <asp:BoundField DataField="TableDate" HeaderText="TableDate" SortExpression="TableDate" />
                     <asp:BoundField DataField="TableHour" HeaderText="TableHour" SortExpression="TableHour" />

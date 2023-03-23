@@ -46,11 +46,11 @@ namespace starserv
                 // Get the row that is currently selected
                 GridViewRow row = gvAvailability.SelectedRow;
                 //Get the index of that row
-                int reservationID = Convert.ToInt32(row.Cells[0].ToString());
+                string reservationID = row.Cells[0].ToString();
                 //Get the parameters needed for the update
                 var parameters = sdsAvailabilityGV.UpdateParameters;
                 //Update the id to match the current id 
-                parameters["ReservationID"].DefaultValue = reservationID.ToString();
+                parameters["ReservationID"].DefaultValue = Convert.ToInt32(reservationID.ToString());
                 /*string taken = "1";
                 string connectionString = ConfigurationManager.ConnectionStrings["starservConnectionString"].ToString();
                 string query = "UPDATE RestaurantTables SET taken = @Taken where tableID = @TableID";
