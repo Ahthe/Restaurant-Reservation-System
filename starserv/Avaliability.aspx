@@ -28,22 +28,18 @@
         <br /><br /><br />
         <div>
             <asp:GridView ID="gvAvailability" runat="server" AutoGenerateColumns="False" 
-                DataKeyNames="TableID" DataSourceID="SQLTableAvailability" Height="477px" Width="1291px"
+                DataKeyNames="TableID" DataSourceID="sdsAvailabilityGV" Height="477px" Width="1291px"
                 OnSelectedIndexChanged="CalDateSelect_SelectionChanged">
                 <Columns>
-                    <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="TableID" HeaderText="TableID" InsertVisible="False" ReadOnly="True" SortExpression="TableID" />
                     <asp:BoundField DataField="TableDate" HeaderText="TableDate" SortExpression="TableDate" />
                     <asp:BoundField DataField="TableHour" HeaderText="TableHour" SortExpression="TableHour" />
                     <asp:BoundField DataField="NumChairs" HeaderText="NumChairs" SortExpression="NumChairs" />
-                    <asp:CheckBoxField DataField="Taken" HeaderText="Taken" SortExpression="Taken" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SQLTableAvailability" runat="server" 
-                ConnectionString="<%$ ConnectionStrings:starservConnectionString %>" 
-                SelectCommand="SELECT * FROM [RestaurantTables] WHERE TableDate >= @SelectedDate ORDER BY [TableDate], [TableHour]"\>
+            <asp:SqlDataSource ID="sdsAvailabilityGV" runat="server" ConnectionString="<%$ ConnectionStrings:starservConnectionString %>" SelectCommand="SELECT [TableID], [TableDate], [TableHour], [NumChairs] FROM [RestaurantTables] WHERE ([TableDate] = @TableDate) ORDER BY [TableDate], [TableHour]">
                 <SelectParameters>
-                    <asp:Parameter Name="SelectedDate" Type="DateTime" />
+                    <asp:ControlParameter ControlID="calDateSelect" DbType="Date" Name="TableDate" PropertyName="SelectedDate" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>
