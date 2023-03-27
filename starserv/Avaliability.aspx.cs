@@ -43,49 +43,17 @@ namespace starserv
                 
             try
             {
-                // Get the row that is currently selected
-                GridViewRow row = gvAvailability.SelectedRow;
-                //Get the index of that row
-                string reservationID = row.Cells[0].ToString();
-                //Get the parameters needed for the update
+
+              
+                // Get the parameters 
                 var parameters = sdsAvailabilityGV.UpdateParameters;
-                //Update the id to match the current id 
-                parameters["ReservationID"].DefaultValue = Convert.ToInt32(reservationID.ToString());
-                /*string taken = "1";
-                string connectionString = ConfigurationManager.ConnectionStrings["starservConnectionString"].ToString();
-                string query = "UPDATE RestaurantTables SET taken = @Taken where tableID = @TableID";
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Taken", taken);
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-                    }
-                }*/
-                //Update taken to be taken instead of avaliable 
+
+                //Set the parameter to the new selection
+                parameters["Email"].DefaultValue = txtEmail.Text;
                 parameters["Taken"].DefaultValue = "1";
                 sdsAvailabilityGV.Update();
-                sdsAvailabilityGV.DataBind();
-
-
-                /* string connectionString = ConfigurationManager.ConnectionStrings["starservConnectionString"].ConnectionString;
-                 SqlConnection conn = new SqlConnection(connectionString);
-                 conn.Open();
-                 string SID = lblSID.Text;
-                 MySqlCommand cmd = new MySqlCommand("update student Set Name = @Name, Address = @Address, Mobile = @Mobile, Email = @Email where SID = @SID", conn);  
-                 cmd.Parameters.AddWithValue("@Name", txtName.Text);
-                 cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
-                 cmd.Parameters.AddWithValue("@Mobile", txtMobile.Text);
-                 cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-                 cmd.Parameters.AddWithValue("SID", SID);
-                 cmd.ExecuteNonQuery();
-                 cmd.Dispose();
-                 ShowMessage("Student Data update Successfully......!");
-                 GridViewStudent.EditIndex = -1;
-                 BindGridView(); btnUpdate.Visible = false;*/
-
+                // I think this might work 
+                gvAvailability.DataBind();
 
             }
             catch (Exception ex)
@@ -122,6 +90,11 @@ namespace starserv
         }
 
         protected void gvAvailability_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void sdsAvailabilityGV_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
 
         }

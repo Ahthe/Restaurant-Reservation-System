@@ -25,7 +25,9 @@
             <TodayDayStyle BackColor="#CCCC99" />
         </asp:Calendar>
 
-        <br /><br /><br />
+        <br />
+        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+        <br /><br />
         <div>
             <asp:GridView ID="gvAvailability" runat="server" AutoGenerateColumns="False" DataSourceID="sdsAvailabilityGV" Height="477px" Width="1291px" OnRowCommand="gvAvailability_RowCommand">
                 <Columns>
@@ -37,16 +39,34 @@
                 </Columns>
                 <SelectedRowStyle BackColor="#0099FF" BorderColor="#00CC99" />
             </asp:GridView>
-            <asp:SqlDataSource ID="sdsAvailabilityGV" runat="server" ConnectionString="<%$ ConnectionStrings:starservConnectionString %>" SelectCommand="SELECT [TableID], [TableDate], [TableHour], [NumChairs] FROM [RestaurantTables] WHERE (([TableDate] = @TableDate) AND ([Taken] &lt;&gt; @Taken)) ORDER BY [TableDate], [TableHour]"
-                UpdateCommand="UPDATE RestaurantTables SET [Taken] = @Taken WHERE [ReservationID] = @ReservationID">
+            <asp:SqlDataSource ID="sdsAvailabilityGV" runat="server" ConnectionString="<%$ ConnectionStrings:starservConnectionString %>" 
+                SelectCommand="SELECT [ReservationID], [TableDate], [TableHour], [Email] FROM [RestaurantTables] WHERE (([Taken] &lt;&gt; @Taken) AND ([TableDate] = @SelectedDate)) ORDER BY [TableDate], [TableHour]"
+                UpdateCommand="UPDATE [RestaurantTables] SET [TableDate] = @TableDate, [TableHour] = @TableHour, [Email] = @Email WHERE [ReservationID] = @original_ReservationID AND (([TableDate] = @original_TableDate) OR ([TableDate] IS NULL AND @original_TableDate IS NULL)) AND (([TableHour] = @original_TableHour) OR ([TableHour] IS NULL AND @original_TableHour IS NULL)) AND (([Email] = @original_Email) OR ([Email] IS NULL AND @original_Email IS NULL))" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [RestaurantTables] WHERE [ReservationID] = @original_ReservationID AND (([TableDate] = @original_TableDate) OR ([TableDate] IS NULL AND @original_TableDate IS NULL)) AND (([TableHour] = @original_TableHour) OR ([TableHour] IS NULL AND @original_TableHour IS NULL)) AND (([Email] = @original_Email) OR ([Email] IS NULL AND @original_Email IS NULL))" InsertCommand="INSERT INTO [RestaurantTables] ([TableDate], [TableHour], [Email]) VALUES (@TableDate, @TableHour, @Email)" OldValuesParameterFormatString="original_{0}" OnSelecting="sdsAvailabilityGV_Selecting">
+                
+                <DeleteParameters>
+                    <asp:Parameter Name="original_ReservationID" Type="Int32" />
+                    <asp:Parameter DbType="Date" Name="original_TableDate" />
+                    <asp:Parameter Name="original_TableHour" Type="Int32" />
+                    <asp:Parameter Name="original_Email" Type="String" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter DbType="Date" Name="TableDate" />
+                    <asp:Parameter Name="TableHour" Type="Int32" />
+                    <asp:Parameter Name="Email" Type="String" />
+                </InsertParameters>
                 
                 <SelectParameters>
-                    <asp:ControlParameter ControlID="calDateSelect" DbType="Date" Name="TableDate" PropertyName="SelectedDate" />
-                    <asp:Parameter DefaultValue="1" Name="Taken" Type="String" />
+                    <asp:Parameter DefaultValue="1" Name="Taken" Type="Byte" />
+                    <asp:ControlParameter ControlID="calDateSelect" DbType="Date" Name="SelectedDate" PropertyName="SelectedDate" />
                 </SelectParameters>
                 <UpdateParameters>
-                    <asp:Parameter Name="ReservationID" Type="Int32" />
-                    <asp:Parameter Name="Taken" Type="String" />
+                    <asp:Parameter DbType="Date" Name="TableDate" />
+                    <asp:Parameter Name="TableHour" Type="Int32" />
+                    <asp:Parameter Name="Email" Type="String" />
+                    <asp:Parameter Name="original_ReservationID" Type="Int32" />
+                    <asp:Parameter DbType="Date" Name="original_TableDate" />
+                    <asp:Parameter Name="original_TableHour" Type="Int32" />
+                    <asp:Parameter Name="original_Email" Type="String" />
                 </UpdateParameters>
             </asp:SqlDataSource>
         </div>
