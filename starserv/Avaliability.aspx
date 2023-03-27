@@ -57,7 +57,7 @@
                 
                 <SelectParameters>
                     <asp:Parameter DefaultValue="1" Name="Taken" Type="Byte" />
-                    <asp:ControlParameter ControlID="calDateSelect" DbType="Date" Name="SelectedDate" PropertyName="SelectedDate" />
+                    <asp:ControlParameter ControlID="calDateSelect" DbType="Date" Name="TableID" PropertyName="SelectedDate" />
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter DbType="Date" Name="TableDate" />
