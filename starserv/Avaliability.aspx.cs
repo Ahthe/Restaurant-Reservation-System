@@ -51,7 +51,7 @@ namespace starserv
                 //Set the parameter to the new selection
                 parameters["Email"].DefaultValue = txtEmail.Text;
                 parameters["Taken"].DefaultValue = "1";
-                sdsAvailabilityGV.Update()
+                sdsAvailabilityGV.Update();
                 // I think this might work 
                 gvAvailability.DataBind();
 

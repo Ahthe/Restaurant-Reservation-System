@@ -32,15 +32,15 @@
             <asp:GridView ID="gvAvailability" runat="server" AutoGenerateColumns="False" DataSourceID="sdsAvailabilityGV" Height="477px" Width="1291px" OnRowCommand="gvAvailability_RowCommand">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
-                    <asp:BoundField DataField="TableID" HeaderText="TableID" SortExpression="TableID" />
+                    <asp:BoundField DataField="ReservationID" HeaderText="ReservationID" SortExpression="ReservationID" />
                     <asp:BoundField DataField="TableDate" HeaderText="TableDate" SortExpression="TableDate" />
                     <asp:BoundField DataField="TableHour" HeaderText="TableHour" SortExpression="TableHour" />
-                    <asp:BoundField DataField="NumChairs" HeaderText="NumChairs" SortExpression="NumChairs" />
+                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                 </Columns>
                 <SelectedRowStyle BackColor="#0099FF" BorderColor="#00CC99" />
             </asp:GridView>
             <asp:SqlDataSource ID="sdsAvailabilityGV" runat="server" ConnectionString="<%$ ConnectionStrings:starservConnectionString %>" 
-                SelectCommand="SELECT [ReservationID], [TableDate], [TableHour], [Email] FROM [RestaurantTables] WHERE (([Taken] &lt;&gt; @Taken) AND ([TableDate] = @SelectedDate)) ORDER BY [TableDate], [TableHour]"
+                SelectCommand="SELECT [ReservationID], [TableDate], [TableHour], [Email] FROM [RestaurantTables] WHERE (([Taken] != @Taken) AND ([TableDate] = @SelectedDate)) ORDER BY [TableDate], [TableHour]"
                 UpdateCommand="UPDATE [RestaurantTables] SET [TableDate] = @TableDate, [TableHour] = @TableHour, [Email] = @Email WHERE [ReservationID] = @original_ReservationID AND (([TableDate] = @original_TableDate) OR ([TableDate] IS NULL AND @original_TableDate IS NULL)) AND (([TableHour] = @original_TableHour) OR ([TableHour] IS NULL AND @original_TableHour IS NULL)) AND (([Email] = @original_Email) OR ([Email] IS NULL AND @original_Email IS NULL))" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [RestaurantTables] WHERE [ReservationID] = @original_ReservationID AND (([TableDate] = @original_TableDate) OR ([TableDate] IS NULL AND @original_TableDate IS NULL)) AND (([TableHour] = @original_TableHour) OR ([TableHour] IS NULL AND @original_TableHour IS NULL)) AND (([Email] = @original_Email) OR ([Email] IS NULL AND @original_Email IS NULL))" InsertCommand="INSERT INTO [RestaurantTables] ([TableDate], [TableHour], [Email]) VALUES (@TableDate, @TableHour, @Email)" OldValuesParameterFormatString="original_{0}" OnSelecting="sdsAvailabilityGV_Selecting">
                 
                 <DeleteParameters>
@@ -57,7 +57,7 @@
                 
                 <SelectParameters>
                     <asp:Parameter DefaultValue="1" Name="Taken" Type="Byte" />
-                    <asp:ControlParameter ControlID="calDateSelect" DbType="Date" Name="TableID" PropertyName="SelectedDate" />
+                    <asp:ControlParameter ControlID="calDateSelect" DbType="Date" Name="SelectedDate" PropertyName="SelectedDate" />
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter DbType="Date" Name="TableDate" />
