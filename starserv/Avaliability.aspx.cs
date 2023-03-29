@@ -50,10 +50,14 @@ namespace starserv
 
                 //Set the parameter to the new selection
                 parameters["Email"].DefaultValue = txtEmail.Text;
-                parameters["Taken"].DefaultValue = "1";
-                sdsAvailabilityGV.Update();
+                parameters["TableHour"].DefaultValue = parameters["original_TableHour"].DefaultValue;
+                parameters["TableDate"].DefaultValue = parameters["original_TableDate"].DefaultValue;
+
+
+                int v = sdsAvailabilityGV.Update();
                 // I think this might work 
                 gvAvailability.DataBind();
+                lblConfirmationError.Text = v + " row(s) updated";
 
             }
             catch (Exception ex)
