@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="StarServConnection-Web.config Connection String" description="StarServConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDB); db=starsev; uid=starserv; password=Light43speeD; " tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\josephjm2023\\Source\\Repos\\jeffjoseph22\\CSC492-TeamProject\\starserv\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='StarServConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Ahthesham\ Ali\\Documents\\GitHub\\CSC492-TeamProject\\starserv\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='StarServConnection']/@connectionString" />
   </parameter>
-  <parameter name="starservConnectionString-Web.config Connection String" description="starservConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=copper;Initial Catalog=starserv;Persist Security Info=True;User ID=starserv;Password=Light43speeD" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\josephjm2023\\Source\\Repos\\jeffjoseph22\\CSC492-TeamProject\\starserv\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='starservConnectionString']/@connectionString" />
+  <parameter name="starservConnectionString-Web.config Connection String" description="starservConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=copper.mountunion.edu;Initial Catalog=starserv;Persist Security Info=True;User ID=starserv;Password=Light43speeD" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Ahthesham\ Ali\\Documents\\GitHub\\CSC492-TeamProject\\starserv\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='starservConnectionString']/@connectionString" />
   </parameter>
 </parameters>

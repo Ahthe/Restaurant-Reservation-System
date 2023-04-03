@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="C:\Users\josephjm2023\Source\Repos\jeffjoseph22\CSC492-TeamProject\starserv\obj\Release\Package\PackageTmp" />
-  <setAcl path="C:\Users\josephjm2023\Source\Repos\jeffjoseph22\CSC492-TeamProject\starserv\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="C:\Users\josephjm2023\Source\Repos\jeffjoseph22\CSC492-TeamProject\starserv\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <IisApp path="C:\Users\Ahthesham Ali\Documents\GitHub\CSC492-TeamProject\starserv\obj\Release\Package\PackageTmp" />
+  <setAcl path="C:\Users\Ahthesham Ali\Documents\GitHub\CSC492-TeamProject\starserv\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\Ahthesham Ali\Documents\GitHub\CSC492-TeamProject\starserv\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>

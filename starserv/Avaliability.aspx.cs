@@ -68,61 +68,61 @@ namespace starserv
         }
 
         //Change the gridview when the calendar data is changed. 
-        //protected void CalDateSelect_SelectionChanged(object sender, EventArgs e)
-        //{
-
-
-        //    //Call method to update the data in the gridview (I think databind might work?)
-        //    try
-        //    {
-        //        // Get the new selected date
-        //        DateTime dateTime = calDateSelect.SelectedDate;
-
-        //        //Get the parameters 
-        //        var parameters = sdsAvailabilityGV.SelectParameters;
-
-        //        //Set the parameter to the new selection
-        //        parameters["SelectedDate"].DefaultValue = dateTime.ToString();
-        //        // I think this might work 
-        //        gvAvailability.DataBind();
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        lblConfirmationError.Text = "A database error has occured." +
-        //                "Message: " + ex.Message;
-        //    }
-        //}
-
-        protected void Page_Load(object sender, EventArgs e)
+        protected void CalDateSelect_SelectionChanged(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                // Populate the date drop-down list with dates for the next 30 days
-                DateTime today = DateTime.Today;
-                for (int i = 0; i < 30; i++)
-                {
-                    DateTime date = today.AddDays(i);
-                    ddlDate.Items.Add(new ListItem(date.ToString("MMMM dd, yyyy"), date.ToString("yyyy-MM-dd")));
-                }
 
-                // Populate the time drop-down list with times (for example, every 30 minutes from 09:00 to 22:00)
-                for (int hour = 9; hour < 22; hour++)
-                {
-                    for (int minute = 0; minute < 60; minute += 30)
-                    {
-                        DateTime time = new DateTime(1, 1, 1, hour, minute, 0);
-                        ddlTime.Items.Add(new ListItem(time.ToString("hh:mm tt"), time.ToString("HH:mm")));
-                    }
-                }
+
+            //Call method to update the data in the gridview (I think databind might work?)
+            try
+            {
+                // Get the new selected date
+                DateTime dateTime = calDateSelect.SelectedDate;
+
+                //Get the parameters 
+                var parameters = sdsAvailabilityGV.SelectParameters;
+
+                //Set the parameter to the new selection
+                parameters["SelectedDate"].DefaultValue = dateTime.ToString();
+                // I think this might work 
+                gvAvailability.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblConfirmationError.Text = "A database error has occured." +
+                        "Message: " + ex.Message;
             }
         }
 
-        protected void ddlDate_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Update the availability data based on the selected date
-            sdsAvailabilityGV.SelectParameters["SelectedDate"].DefaultValue = ddlDate.SelectedValue;
-            gvAvailability.DataBind();
-        }
+        //protected void Page_Load(object sender, EventArgs e)
+        //{
+        //    if (!IsPostBack)
+        //    {
+        //        // Populate the date drop-down list with dates for the next 30 days
+        //        DateTime today = DateTime.Today;
+        //        for (int i = 0; i < 30; i++)
+        //        {
+        //            DateTime date = today.AddDays(i);
+        //            ddlDate.Items.Add(new ListItem(date.ToString("MMMM dd, yyyy"), date.ToString("yyyy-MM-dd")));
+        //        }
+
+        //        // Populate the time drop-down list with times (for example, every 30 minutes from 09:00 to 22:00)
+        //        for (int hour = 9; hour < 22; hour++)
+        //        {
+        //            for (int minute = 0; minute < 60; minute += 30)
+        //            {
+        //                DateTime time = new DateTime(1, 1, 1, hour, minute, 0);
+        //                ddlTime.Items.Add(new ListItem(time.ToString("hh:mm tt"), time.ToString("HH:mm")));
+        //            }
+        //        }
+        //    }
+        //}
+
+        //protected void ddlDate_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    // Update the availability data based on the selected date
+        //    sdsAvailabilityGV.SelectParameters["SelectedDate"].DefaultValue = ddlDate.SelectedValue;
+        //    gvAvailability.DataBind();
+        //}
 
         
 
@@ -133,14 +133,14 @@ namespace starserv
 
         protected void sdsAvailabilityGV_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
-            if (!IsPostBack)
-            {
-                e.Cancel = true;
-            }
-            else
-            {
-                e.Command.Parameters["@SelectedDate"].Value = ddlDate.SelectedValue;
-            }
+            //if (!IsPostBack)
+            //{
+            //    e.Cancel = true;
+            //}
+            //else
+            //{
+            //    e.Command.Parameters["@SelectedDate"].Value = ddlDate.SelectedValue;
+            //}
         }
     }
 }
