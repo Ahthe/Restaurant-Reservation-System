@@ -70,11 +70,17 @@
         }
 
         .form-group-half {
-            width: 48%;
+            width: 60%;
+        }
+        .form-group-half-left {
+            width: 40%;
+        }
+        .form-group-half-right {
+            width: 60%;
         }
 
         .form-group-full {
-            width: 50%;
+            width: 40%;
         }
 
         .gridView {
@@ -143,15 +149,15 @@
                         <label for="txtFirstName">First Name:</label>
                         <input id="Text1" runat="server" type="text" name="firstName" style="width: 70%;" required>
                     </div>
-                    <div class="form-group form-group-half">
+                    <div class="form-group form-group-half-left">
                         <label for="txtLastName">Last Name:</label>
                         <input id="Text2" runat="server" type="text" name="lastName" required>
                     </div>
-                    <div class="form-group form-group-half">
+                    <div class="form-group form-group-half-right">
                         <label for="txtGuests">Number of Guests:</label>
                         <input id="Number1" runat="server" type="number" name="guests" style="width: 70%;" min="1" max="10" required>
                     </div>
-                    <div class="form-group form-group-half">
+                    <div class="form-group form-group-half-left">
                         <label for="ddlTableSize">Table Size:</label>
                         <select id="Select1" runat="server" name="tableSize" required>
                             <option value="">-- Select Size --</option>
@@ -161,10 +167,15 @@
                             <option value="8">8 people</option>
                         </select>
                     </div>
-                    <div class="form-group form-group-full">
+                    
+                    <%--<div class="form-group form-group-full">
+                      
                         <label for="txtNotes">Notes:</label>
                         <textarea id="Textarea1" runat="server" name="notes" style="width: 50%"></textarea>
-                    </div>
+                    </div>--%>
+                    <label for="txtNotes">Notes:</label><br />
+                    <textarea id="Textarea1" runat="server" name="notes" style="width: 50%"></textarea>
+                    
                 </div>
 
                 <div>
