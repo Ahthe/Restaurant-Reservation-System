@@ -11,11 +11,28 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('https://i.imgur.com/xJpBwZx.jpg');
+           /* background-image: url('https://i.imgur.com/xJpBwZx.jpg');*/
+           background-color: whitesmoke;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             color: #333;
+        }
+
+        /* Add a style for the header */
+        .header {
+            width: 100%;
+            height: 80px;
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #000;
+            font-weight: bold;
+            z-index: 100; /* Add this line to keep the header on top */
         }
 
         .container {
@@ -23,8 +40,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            position: relative;
-            top: 100px;
+            padding-top: 140px; /* Replace top with padding-top */
             background-color: transparent;
         }
 
@@ -53,14 +69,14 @@
             font-weight: bold;
             border: 1px solid transparent;
             border-radius: 4px;
-            background-color: #337ab7;
+            background-color: orangered;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease-in-out;
         }
 
         .button:hover {
-                background-color: #286090;
+                background-color: darkorange;
         }
 
         .form-wrapper {
@@ -112,14 +128,82 @@
             background-color: #ddd;
         }
 
+        .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+
+     
+      .burger-image {
+    position: fixed;
+    right: 5%;
+    top: 200px;
+}
+
     </style>
 
 
 </head>
 <body>
     <form id="form1" runat="server">
+              <!-- Add the booking header -->
+       <%-- <div class="header">
+            Booking
+        </div>--%>
+        <div class="content-wrapper">
         <div style="float: left; width: 50%;">
+                <br />
+                <br />
+                <br />
             <div class="container">
+
+                   <div class="header">
+                        Booking
+                    </div>
+                   <div class="form-wrapper">
+                  
+                    <div class="form-group form-group-half">
+                        <label for="txtFirstName">First Name:</label>
+                        <input id="Text1" runat="server" type="text" name="firstName" style="width: 50%;" required="required"/>
+                    </div>
+                    <div class="form-group form-group-half-left" style:"margin-left=30%">
+                        <label for="txtLastName">Last Name:</label>
+                        <input id="Text2" runat="server" type="text" name="lastName" style="width: 70%;" required="required"/>
+                    </div>
+                    <div class="form-group form-group-half">
+                         <label for="txtEmail">Email:</label>
+                         <asp:TextBox ID="txtEmail" runat="server" Required="true" TextMode="Email" Style="width: 50%"></asp:TextBox>
+                    </div>
+                    <div class="form-group form-group-half-right">
+                        <label for="txtGuests">Number of Guests:</label>
+                        <input id="Number1" runat="server" type="number" name="guests" style="width: 50%;" min="1" max="10" required="required"/>
+                    </div>
+                    <div class="form-group form-group-half-left">
+                        <label for="ddlTableSize">Table Size:</label>
+                        <select id="Select1" runat="server" name="tableSize" required="required">
+                            <option value="">-- Select Size --</option>
+                            <option value="2">2 people</option>
+                            <option value="4">4 people</option>
+                            <option value="6">6 people</option>
+                            <option value="8">8 people</option>
+                        </select>
+                    </div>
+                    
+                    <%--<div class="form-group form-group-full">
+                      
+                        <label for="txtNotes">Notes:</label>
+                        <textarea id="Textarea1" runat="server" name="notes" style="width: 50%"></textarea>
+                    </div>--%>
+                    <label for="txtNotes">Notes:</label><br />
+                    <textarea id="Textarea1" runat="server" name="notes" style="width: 100%"></textarea>
+                    
+                </div>
+
+
+
+
                 <br />
                 <br />
                 <br />
@@ -140,46 +224,10 @@
 
                 <br />
 
-                <div class="form-wrapper">
-                    <div class="form-group form-group-half">
-                        <label for="txtEmail">Email:</label>
-                        <asp:TextBox ID="txtEmail" runat="server" Required="true" TextMode="Email" Style="width: 50%"></asp:TextBox>
-                    </div>
-                    <div class="form-group form-group-half">
-                        <label for="txtFirstName">First Name:</label>
-                        <input id="Text1" runat="server" type="text" name="firstName" style="width: 70%;" required>
-                    </div>
-                    <div class="form-group form-group-half-left">
-                        <label for="txtLastName">Last Name:</label>
-                        <input id="Text2" runat="server" type="text" name="lastName" required>
-                    </div>
-                    <div class="form-group form-group-half-right">
-                        <label for="txtGuests">Number of Guests:</label>
-                        <input id="Number1" runat="server" type="number" name="guests" style="width: 70%;" min="1" max="10" required>
-                    </div>
-                    <div class="form-group form-group-half-left">
-                        <label for="ddlTableSize">Table Size:</label>
-                        <select id="Select1" runat="server" name="tableSize" required>
-                            <option value="">-- Select Size --</option>
-                            <option value="2">2 people</option>
-                            <option value="4">4 people</option>
-                            <option value="6">6 people</option>
-                            <option value="8">8 people</option>
-                        </select>
-                    </div>
-                    
-                    <%--<div class="form-group form-group-full">
-                      
-                        <label for="txtNotes">Notes:</label>
-                        <textarea id="Textarea1" runat="server" name="notes" style="width: 50%"></textarea>
-                    </div>--%>
-                    <label for="txtNotes">Notes:</label><br />
-                    <textarea id="Textarea1" runat="server" name="notes" style="width: 50%"></textarea>
-                    
-                </div>
+             
 
                 <div>
-                    <asp:GridView ID="gvAvailability" runat="server" AutoGenerateColumns="False" DataSourceID="sdsAvailabilityGV" Height="477px" Width="1291px" OnRowCommand="gvAvailability_RowCommand" CssClass="gridView">
+                    <asp:GridView ID="gvAvailability" runat="server" AutoGenerateColumns="False" DataSourceID="sdsAvailabilityGV" Height="477px" Width="100%" OnRowCommand="gvAvailability_RowCommand" CssClass="gridView">
                         <Columns>
 
                             <asp:CommandField ShowSelectButton="True" />
@@ -241,8 +289,9 @@
 
             </div>
         </div>
-        <div style:"width:50%";>
-
+            </div>
+        <div class="burger-image">
+            <img src="https://i.imgur.com/BsY1U7g.png" alt="Burger Image" />
         </div>
     </form>
 </body>
