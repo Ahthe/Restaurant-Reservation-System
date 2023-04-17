@@ -73,6 +73,7 @@
     <Content Include="CancelReservation.aspx" />
     <Content Include="Confirmation.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="NavigationStyleSheet.css" />
     <Content Include="RestaurantLayout.aspx" />
     <Content Include="TeamBlog.html" />
     <Content Include="Web.config" />

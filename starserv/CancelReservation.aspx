@@ -11,9 +11,17 @@
             margin-top: 150px;
         }
     </style>
-
+    <link rel="stylesheet" href="NavigationStyleSheet.css" />
 </head>
 <body>
+    <div class ="navigation">
+        <ul>
+          <li><a href="Avaliability.aspx">Home</a></li>
+          <li><a href="Admin.aspx">Admin</a></li>
+          <li><a href="TeamBlog.html">About</a></li>
+          <li><a href="CancelReservation.aspx">Cancel a Reservation</a></li>
+        </ul>
+    </div>
     <form id="form1" runat="server">
         <div class="information-container">
             <asp:Label ID="lblEmail" runat="server" Text="Enter Email Address:  "></asp:Label>
