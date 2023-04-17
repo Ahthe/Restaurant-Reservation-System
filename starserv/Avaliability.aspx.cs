@@ -142,5 +142,10 @@ namespace starserv
             //    e.Command.Parameters["@SelectedDate"].Value = ddlDate.SelectedValue;
             //}
         }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
