@@ -64,7 +64,7 @@ namespace starserv
             {
                 lblConfirmationError.Text = "A database error has occured." +
                     "Message: " + ex.Message;
-            }
+            }Response.Redirect("Confirmation.aspx");
         }
 
         //Change the gridview when the calendar data is changed. 

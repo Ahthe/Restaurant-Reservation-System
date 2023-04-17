@@ -70,6 +70,7 @@
     <Content Include="Admin.aspx" />
     <Content Include="Avaliability.aspx" />
     <Content Include="CancelReservation.aspx" />
+    <Content Include="Confirmation.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="RestaurantLayout.aspx" />
     <Content Include="TeamBlog.html" />
@@ -96,6 +97,13 @@
     </Compile>
     <Compile Include="CancelReservation.aspx.designer.cs">
       <DependentUpon>CancelReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Confirmation.aspx.cs">
+      <DependentUpon>Confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Confirmation.aspx.designer.cs">
+      <DependentUpon>Confirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="RestaurantLayout.cs">
       <SubType>ASPXCodeBehind</SubType>
