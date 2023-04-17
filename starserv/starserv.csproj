@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.aspx" />
+    <Content Include="AdminComfirmed.aspx" />
+    <Content Include="AdminView.aspx" />
     <Content Include="Avaliability.aspx" />
     <Content Include="CancelConfirmation.aspx" />
     <Content Include="CancelReservation.aspx" />
@@ -85,6 +87,20 @@
     </Compile>
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminComfirmed.aspx.cs">
+      <DependentUpon>AdminComfirmed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminComfirmed.aspx.designer.cs">
+      <DependentUpon>AdminComfirmed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminView.aspx.cs">
+      <DependentUpon>AdminView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminView.aspx.designer.cs">
+      <DependentUpon>AdminView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Avaliability.aspx.cs">
       <DependentUpon>Avaliability.aspx</DependentUpon>
