@@ -11,7 +11,19 @@ namespace starserv
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack) 
+            { 
+                string username = Request.Form["username"]; 
+                string password = Request.Form["password"]; 
+                if (username == "admin" && password == "password") 
+                { 
+                    Response.Redirect("RestaurantLayout.aspx");
+                }
+                else 
+                { 
+                    Response.Write("Invalid username or password."); 
+                } 
+            }
         }
     }
 }

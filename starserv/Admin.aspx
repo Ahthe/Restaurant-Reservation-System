@@ -8,7 +8,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div> 
+            <label for ="username">Username:</label>   
+            <input type="text" id="username" name="username" /> <br />
+            <label for ="password">Password:</label>
+            <input type="password" id="password" name="password" /> <br />
+            <asp:Button ID="btnAdminLogin" runat="server" Text="Log In" />
         </div>
     </form>
 </body>
