@@ -96,6 +96,15 @@ namespace starserv
         protected global::System.Web.UI.WebControls.Calendar calDateSelect;
 
         /// <summary>
+        /// lblAvailMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAvailMessage;
+
+        /// <summary>
         /// gvAvailability control.
         /// </summary>
         /// <remarks>

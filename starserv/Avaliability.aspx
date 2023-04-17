@@ -227,14 +227,15 @@
              
 
                 <div>
+                    <asp:Label ID="lblAvailMessage" runat="server" Text="All available tables are shown below for the selected date."></asp:Label>
                     <asp:GridView ID="gvAvailability" runat="server" AutoGenerateColumns="False" DataSourceID="sdsAvailabilityGV" Height="477px" Width="100%" OnRowCommand="gvAvailability_RowCommand" CssClass="gridView">
                         <Columns>
 
                             <asp:CommandField ShowSelectButton="True" />
-                            <asp:BoundField DataField="ReservationID" HeaderText="ReservationID" SortExpression="ReservationID" ItemStyle-Width="20%" />
+                            <%--<asp:BoundField DataField="ReservationID" HeaderText="ReservationID" SortExpression="ReservationID" ItemStyle-Width="20%" />--%>
                             <asp:BoundField DataField="TableDate" HeaderText="TableDate" SortExpression="TableDate" ItemStyle-Width="25%" />
                             <asp:BoundField DataField="TableHour" HeaderText="TableHour" SortExpression="TableHour" ItemStyle-Width="25%" />
-                            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-Width="30%" />
+                            <%--<asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-Width="30%" />--%>
                         </Columns>
                         <SelectedRowStyle BackColor="#0099FF" BorderColor="#00CC99" />
                     </asp:GridView>
