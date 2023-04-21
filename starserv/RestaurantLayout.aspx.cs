@@ -13,5 +13,11 @@ namespace starserv
         {
 
         }
+
+        protected void btnConfirmReservation_Click(object sender, EventArgs e)
+        {
+            // Your reservation confirmation logic here
+            // For example: lblConfirmationError.Text = "Reservation confirmed!";
+        }
     }
 }
