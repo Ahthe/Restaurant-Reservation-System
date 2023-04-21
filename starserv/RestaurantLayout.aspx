@@ -2,6 +2,10 @@
 
 <!DOCTYPE html>
 <style>
+
+    body{
+         padding-top: 180px;
+    }
     .restaurant-layout {
         display: flex;
         flex-wrap: wrap;
@@ -19,7 +23,9 @@
         padding: 10px;
         width: 100px;
         height: 100px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        margin-right: 100px;
+        margin-left: 100px;
     }
 
     .chair {
@@ -32,6 +38,32 @@
         height: 30px;
         margin: 5px;
     }
+
+    .chair.selected {
+    background-color: #f2f2f2;
+}
+
+.chair.reserved {
+    background-color: red;
+}
+
+  .button {
+            width: 200px;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            background-color: orangered;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: darkorange;
+        }
+
     /*For Navigation Bar */
     :root {
         --primary: #8c38ff;
@@ -157,6 +189,39 @@
 </style>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const chairs = document.querySelectorAll('.chair');
+        let selectedChair = null;
+
+        chairs.forEach(chair => {
+            chair.addEventListener('click', function () {
+                if (this.classList.contains('reserved')) {
+                    alert('This chair is already reserved. Please choose another chair.');
+                    return;
+                }
+
+                if (selectedChair) {
+                    selectedChair.classList.remove('selected');
+                }
+
+                this.classList.add('selected');
+                selectedChair = this;
+            });
+        });
+
+        const confirmButton = document.querySelector('#confirm-button');
+        confirmButton.addEventListener('click', function () {
+            if (!selectedChair) {
+                alert('Please select a chair before confirming your reservation.');
+                return;
+            }
+
+            selectedChair.classList.remove('selected');
+            selectedChair.classList.add('reserved');
+            selectedChair = null;
+        });
+    });
+
         const hamburger = document.querySelector('.hamburger');
 
         hamburger.addEventListener('click', function () {
@@ -170,6 +235,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+         <asp:Button ID="btnConfirmReservation" runat="server" Text="Confirm Reservation"
+                        OnClick="btnConfirmReservation_Click" CssClass="button" />
+                    <br />
+                    <asp:Label ID="lblConfirmationError" runat="server" Text=""></asp:Label>
+                    <br />
           <%-- for the Navigation Bar  --%>        
         <nav>
           <div class="container2">
@@ -190,6 +260,8 @@
          </div>
         </nav>
         <%-- end of the navigation bar --%>
+        
+       
 
         <div>
             <div class="restaurant-layout">

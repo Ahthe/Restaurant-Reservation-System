@@ -302,10 +302,12 @@
           <h1>Star Serve</h1>
       
           <div class="menu">    
-            <a href="#" class="is-active">Home</a>
-            <a href="#">About</a>
-            <a href="#">Confrigration</a>
-            <a href="#about">Contact</a>
+              <ul>
+          <li><a href="Avaliability.aspx">Home</a></li>
+          <li><a href="Admin.aspx">Admin</a></li>
+          <li><a href="TeamBlog.html">About</a></li>
+          <li><a href="CancelReservation.aspx">Cancel a Reservation</a></li>
+    </ul>
           </div>
 
           <button class="hamburger">
