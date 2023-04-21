@@ -303,8 +303,7 @@
             this.classList.toggle('is-active');
         });
     </script>
- <%--   <link rel="stylesheet" href="NavigationStyleSheet.css" />--%>
-
+ 
 </head>
 <body>
      <%-- for the Navigation Bar  --%>        
@@ -318,6 +317,7 @@
           <li><a href="Admin.aspx">Admin</a></li>
           <li><a href="TeamBlog.html">About</a></li>
           <li><a href="CancelReservation.aspx">Cancel a Reservation</a></li>
+          <li><a href="RestaurantLayout.aspx">Configration</a></li>
     </ul>
 
     </div>
