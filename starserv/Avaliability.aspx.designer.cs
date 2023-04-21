@@ -24,13 +24,13 @@ namespace starserv
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Text1 control.
+        /// Text3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Text3;
 
         /// <summary>
         /// Text2 control.
@@ -60,15 +60,6 @@ namespace starserv
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Number1;
 
         /// <summary>
-        /// Select1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect Select1;
-
-        /// <summary>
         /// Textarea1 control.
         /// </summary>
         /// <remarks>
@@ -96,13 +87,13 @@ namespace starserv
         protected global::System.Web.UI.WebControls.Calendar calDateSelect;
 
         /// <summary>
-        /// lblAvailMessage control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAvailMessage;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// gvAvailability control.
@@ -123,15 +114,6 @@ namespace starserv
         protected global::System.Web.UI.WebControls.SqlDataSource sdsAvailabilityGV;
 
         /// <summary>
-        /// lblConfirmationError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConfirmationError;
-
-        /// <summary>
         /// btnConfirmReservation control.
         /// </summary>
         /// <remarks>
@@ -139,5 +121,14 @@ namespace starserv
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnConfirmReservation;
+
+        /// <summary>
+        /// lblConfirmationError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConfirmationError;
     }
 }
