@@ -6,10 +6,82 @@
 <head runat="server">
     <title></title>
     <style>
-        .information-container{
-            margin-left: 300px;
-            margin-top: 150px;
+         body {
+            font-family: 'Fira sans', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
+
+        .information-container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #f4f4f4; 
+           /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);*/
+            border-radius: 5px;
+            padding: 20px;
+            margin-left: 500px;
+            margin-top: 150px;
+            
+            
+        }
+
+        .information-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .information-container label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .information-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+            transition: border-color 0.2s;
+        }
+
+        .information-container input[type="text"]:focus {
+            border-color: #8c38ff;
+            outline: none;
+        }
+
+        .information-container .submit-btn {
+            width: 100%;
+            background-color: #8c38ff;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .information-container .submit-btn:hover {
+            background-color: #6b2cc9;
+        }
+
+        /*Sad Image*/
+        .bottom-right-image {
+           position: fixed;
+           bottom: 20px;
+           right: 20px;
+           width: 800px; /* Adjust the width as desired */
+           height: auto; /* Maintain the aspect ratio */
+           z-index: 10; /* Make sure the image is above other content */
+        }
+
+    
     
          /*For Navigation Bar */
         :root {
@@ -193,13 +265,15 @@
         </nav>
         <%-- end of the navigation bar --%>
 
-    <form id="form1" runat="server">
+   <form id="form1" runat="server">
         <div class="information-container">
-            <asp:Label ID="lblEmail" runat="server" Text="Enter Email Address:  "></asp:Label>
+            <h2>Cancel Reservation</h2>
+            <asp:Label ID="lblEmail" runat="server" Text="Enter Email Address:"></asp:Label>
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
             <br /><br />
             <asp:Label ID="lblMessage" runat="server" Text="Please select the reservation below."></asp:Label>
         </div>
+       <br /><br />
         <div class="information-container" style="margin-top:10px;">
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sdsCancelReservation" Height="515px" Width="666px" OnSelectedIndexChanged="btnConfirmCancel_Click">
                 <Columns>
@@ -215,10 +289,11 @@
                     <asp:ControlParameter ControlID="txtEmail" Name="Email" PropertyName="Text" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
-        
-            
+         <br />
+            <asp:Button ID="btnConfirmCancel" runat="server" CssClass="submit-btn" Text="Submit Request" OnClick="btnConfirmCancel_Click" />     
         </div>
        <%-- <asp:Button ID="btnConfirmCancel" runat="server" Text="Cancel Reservation" OnClick="btnConfirmCancel_Click" />--%>
-    </form>
+     <img class="bottom-right-image" src="https://i.imgur.com/wHzwMh6.png" alt="Image" /> 
+   </form>
 </body>
 </html>

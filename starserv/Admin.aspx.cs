@@ -25,5 +25,10 @@ namespace starserv
                 } 
             }
         }
-    }
+        protected void btnAdminLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        }
 }

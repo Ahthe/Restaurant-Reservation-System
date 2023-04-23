@@ -208,8 +208,43 @@
        }
         
 </style>
+   
+<script>
+       document.addEventListener('DOMContentLoaded', function () {
+    const chairs = document.querySelectorAll('.chair');
+    let selectedChair = null;
 
+    chairs.forEach(chair => {
+        chair.addEventListener('click', function () {
+            if (this.classList.contains('reserved')) {
+                alert('This chair is already reserved. Please choose another chair.');
+                return;
+            }
 
+            if (selectedChair) {
+                selectedChair.classList.remove('selected');
+            }
+
+            this.classList.add('selected');
+            selectedChair = this;
+        });
+    });
+
+    const confirmButton = document.querySelector('#confirm-button');
+    confirmButton.addEventListener('click', function () {
+        if (!selectedChair) {
+            alert('Please select a chair before confirming your reservation.');
+            return;
+        }
+
+        selectedChair.classList.remove('selected');
+        selectedChair.classList.add('reserved');
+        selectedChair.innerHTML = '<span style="color: red;">R</span>'; // Change this line
+        selectedChair = null;
+    });
+});
+</script>
+ 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -275,6 +310,8 @@
         <div class="chair">C2</div>
         <div class="chair">C3</div>
         <div class="chair">C4</div>
+        <div class="chair">C5</div>
+        <div class="chair">C6</div>
     </div>
     <div class="table">
         <div class="chair">C1</div>
@@ -291,40 +328,6 @@
 </div>
 
     </form>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const chairs = document.querySelectorAll('.chair');
-            let selectedChair = null;
-
-            chairs.forEach(chair => {
-                chair.addEventListener('click', function () {
-                    if (this.classList.contains('reserved')) {
-                        alert('This chair is already reserved. Please choose another chair.');
-                        return;
-                    }
-
-                    if (selectedChair) {
-                        selectedChair.classList.remove('selected');
-                    }
-
-                    this.classList.add('selected');
-                    selectedChair = this;
-                });
-            });
-
-            const confirmButton = document.querySelector('#confirm-button');
-            confirmButton.addEventListener('click', function () {
-                if (!selectedChair) {
-                    alert('Please select a chair before confirming your reservation.');
-                    return;
-                }
-
-                selectedChair.classList.remove('selected');
-                selectedChair.classList.add('reserved');
-                selectedChair.innerHTML = 'R'; // Add this line
-                selectedChair = null;
-            });
-        });
-    </script>
+    
 </body>
 </html>

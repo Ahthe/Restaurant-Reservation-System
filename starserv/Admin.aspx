@@ -7,6 +7,67 @@
     <title></title>
      <style>
 
+    .content {
+        padding-top: 300px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        padding: 116px;
+        background-color: var(--light);
+        border-radius: 18px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-form label,.login-form input {
+        margin-bottom: 18px;
+    }
+
+    .login-form input {
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    .login-form input[type="submit"] {
+        cursor: pointer;
+        background-color: var(--primary);
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        transition: background-color 0.3s;
+          
+    }
+
+    .login-form input[type="submit"]:hover {
+        background-color: #6a00cc;
+    }
+
+     /*for the button*/
+    .admin-login-btn {
+        margin-top: 20px;
+        margin-left: 122px;
+        background-color: var(--primary);
+        color: #FFF;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: background-color 0.3s;
+        width: 100px;
+    }
+
+    .admin-login-btn:hover {
+        background-color: #6a0bd7;
+    }
+
     /*For Navigation Bar */
         :root {
             --primary: #8c38ff;
@@ -151,13 +212,13 @@
         
     </style>
 
-    <script>
-        const hamburger = document.querySelector('.hamburger');
+      <script>
+          const hamburger = document.querySelector('.hamburger');
 
-        hamburger.addEventListener('click', function () {
-            this.classList.toggle('is-active');
-        });
-    </script>
+          hamburger.addEventListener('click', function () {
+              this.classList.toggle('is-active');
+          });
+      </script>
 
 </head>
 <body>
@@ -185,15 +246,16 @@
         </nav>
         <%-- end of the navigation bar --%>
 
-
- <form id="form1" runat="server">
-        <div> 
-            <label for ="username">Username:</label>   
-            <input type="text" id="username" name="username" /> <br />
-            <label for ="password">Password:</label>
-            <input type="password" id="password" name="password" /> <br />
-            <asp:Button ID="btnAdminLogin" runat="server" Text="Log In" />
-        </div>
-    </form>
+    <div class="content">
+        <form id="form1" runat="server" class="login-form">
+            <div> 
+                <label for ="username">Username:</label>   
+                <input type="text" id="username" name="username" /> <br />
+                <label for ="password">Password:</label>
+                <input type="password" id="password" name="password" /> <br />
+                <asp:Button ID="btnAdminLogin" runat="server" CssClass="admin-login-btn" Text="Log In" UseSubmitBehavior="false" OnClick="btnAdminLogin_Click" />
+            </div>
+        </form>
+    </div>
 </body>
 </html>
