@@ -1,74 +1,28 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="starserv.Admin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminComfirmed.aspx.cs" Inherits="starserv.AdminComfirmed" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-     <style>
+    <style>
+        .container {
+            margin: 250px;
+            margin-left: 350px;
+            color: white;
+            text-decoration: underline;
+            background-color: gray;
+            padding: 25px;
+            padding-right: 10px;
+            text-align: center;
+            opacity: 90%;
+        }
+        body {
+            background-image: url("https://i.imgur.com/BsY1U7g.png");
+            background-color: white;
+        }
 
-    .content {
-        padding-top: 300px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .login-form {
-        display: flex;
-        flex-direction: column;
-        width: 600px;
-        padding: 116px;
-        background-color: var(--light);
-        border-radius: 18px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .login-form label,.login-form input {
-        margin-bottom: 18px;
-    }
-
-    .login-form input {
-        padding: 8px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        font-size: 14px;
-    }
-
-    .login-form input[type="submit"] {
-        cursor: pointer;
-        background-color: var(--primary);
-        color: #fff;
-        font-weight: bold;
-        border: none;
-        transition: background-color 0.3s;
-          
-    }
-
-    .login-form input[type="submit"]:hover {
-        background-color: #6a00cc;
-    }
-
-     /*for the button*/
-    .admin-login-btn {
-        margin-top: 20px;
-        margin-left: 122px;
-        background-color: var(--primary);
-        color: #FFF;
-        border: none;
-        border-radius: 4px;
-        padding: 8px 16px;
-        cursor: pointer;
-        font-weight: bold;
-        text-transform: uppercase;
-        transition: background-color 0.3s;
-        width: 100px;
-    }
-
-    .admin-login-btn:hover {
-        background-color: #6a0bd7;
-    }
-
-    /*For Navigation Bar */
+        /*For Navigation Bar */
         :root {
             --primary: #8c38ff;
             --light: #EEEEEE;
@@ -212,17 +166,18 @@
         
     </style>
 
-      <script>
-          const hamburger = document.querySelector('.hamburger');
+    <script>
+        const hamburger = document.querySelector('.hamburger');
 
-          hamburger.addEventListener('click', function () {
-              this.classList.toggle('is-active');
-          });
-      </script>
+        hamburger.addEventListener('click', function () {
+            this.classList.toggle('is-active');
+        });
+    </script>
 
 </head>
 <body>
-     <%-- for the Navigation Bar  --%>        
+    
+    <%-- for the Navigation Bar  --%>        
         <nav>
           <div class="container2">
           <h1>Star Serve</h1>
@@ -233,8 +188,7 @@
           <li><a href="Admin.aspx">Admin</a></li>
           <li><a href="TeamBlog.html">About</a></li>
           <li><a href="CancelReservation.aspx">Cancel a Reservation</a></li>
-          <li><a href="RestaurantLayout.aspx">Configration</a></li>
-          <li><a href="AdminView.aspx">Admin Manage Reseervations</a></li>
+           <li><a href="RestaurantLayout.aspx">Configration</a></li>
     </ul>
 
     </div>
@@ -247,16 +201,12 @@
         </nav>
         <%-- end of the navigation bar --%>
 
-    <div class="content">
-        <form id="form1" runat="server" class="login-form">
-            <div> 
-                <label for ="username">Username:</label>   
-                <input type="text" id="username" name="username" /> <br />
-                <label for ="password">Password:</label>
-                <input type="password" id="password" name="password" /> <br />
-                <asp:Button ID="btnAdminLogin" runat="server" CssClass="admin-login-btn" Text="Log In" UseSubmitBehavior="false" OnClick="btnAdminLogin_Click" />
-            </div>
-        </form>
-    </div>
+    <form id="form1" runat="server">
+        <div class="container">
+            <h1>Confirmed.</h1>
+            <h3><a href="AdminView.aspx"> Return to View? </a></h3>
+        </div>
+       
+    </form>
 </body>
 </html>
