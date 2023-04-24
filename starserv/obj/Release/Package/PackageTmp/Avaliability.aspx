@@ -317,7 +317,6 @@
           <li><a href="Admin.aspx">Admin</a></li>
           <li><a href="TeamBlog.html">About</a></li>
           <li><a href="CancelReservation.aspx">Cancel a Reservation</a></li>
-          <li><a href="RestaurantLayout.aspx">Configration</a></li>
     </ul>
 
     </div>
