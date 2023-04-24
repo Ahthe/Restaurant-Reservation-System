@@ -144,14 +144,20 @@
             position: relative;
         }
 
-     
-        .burger-image {
-            position: fixed;
-            right: 1%;
-            top: 318px;
-            width: 789px;
+    .burger-image {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
+        .burger-image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
         /*For Navigation Bar */
         :root {
             --primary: #8c38ff;
@@ -441,7 +447,7 @@
                 </div> </div> </div>
        
            <div class="burger-image">
-            <img src="https://i.imgur.com/wnXKl1i.png" alt="Burger Image" style="height: 513px; width: 652px" />
+            <img src="https://i.imgur.com/wnXKl1i.png" alt="Burger Image"  />
         </div>
     </form>
 </body>

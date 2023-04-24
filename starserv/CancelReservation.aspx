@@ -268,7 +268,7 @@
    <form id="form1" runat="server">
         <div class="information-container">
             <h2>Cancel Reservation</h2>
-            <asp:Label ID="lblEmail" runat="server" Text="Enter Email Address:"></asp:Label>
+            <asp:Label ID="lblEmail" runat="server" Text="Enter Email Address and Press Enter:"></asp:Label>
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
             <br /><br />
             <asp:Label ID="lblMessage" runat="server" Text="Please select the reservation below."></asp:Label>
@@ -290,10 +290,10 @@
                 </SelectParameters>
             </asp:SqlDataSource>
          <br />
-            <asp:Button ID="btnConfirmCancel" runat="server" CssClass="submit-btn" Text="Submit Request" OnClick="btnConfirmCancel_Click" />     
+            <%--<asp:Button ID="btnConfirmCancel" runat="server" CssClass="submit-btn" Text="Submit Request" OnClick="btnConfirmCancel_Click" />--%>     
         </div>
        <%-- <asp:Button ID="btnConfirmCancel" runat="server" Text="Cancel Reservation" OnClick="btnConfirmCancel_Click" />--%>
-     <img class="bottom-right-image" src="https://i.imgur.com/wHzwMh6.png" alt="Image" /> 
+     <img class="" src="https://i.imgur.com/wHzwMh6.png" alt="Image" /> 
    </form>
 </body>
 </html>
