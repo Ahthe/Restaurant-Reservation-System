@@ -241,6 +241,16 @@
         </nav>
         <%-- end of the navigation bar --%>
  
+        <div id="config-panel">
+    <h2>Configuration</h2>
+    <label for="num-tables">Number of tables:</label>
+    <input type="number" id="num-tables" min="1" value="1"/>
+    <label for="num-chairs">Chairs per table:</label>
+    <input type="number" id="num-chairs" min="1" value="1"/>
+    <button id="apply-config" class="button">Apply Configuration</button>
+</div>
+
+
       
         <div id="restaurant-layout-container">
     <div class="restaurant-layout"></div>
@@ -301,7 +311,28 @@
             return chair;
         }
 
+        function applyConfig() {
+            const numTables = parseInt(document.querySelector('#num-tables').value, 10);
+            const numChairs = parseInt(document.querySelector('#num-chairs').value, 10);
+
+            const layoutData = {
+                tables: Array.from({ length: numTables }, () => ({
+                    chairs: Array.from({ length: numChairs }, () => ({ status: 'available' }))
+                }))
+            };
+
+            // Remove existing layout
+            const restaurantLayout = document.querySelector('.restaurant-layout');
+            restaurantLayout.innerHTML = '';
+
+            // Create new layout
+            createLayout(layoutData);
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
+
+            document.querySelector('#apply-config').addEventListener('click', applyConfig);
+
             const chairs = document.querySelectorAll('.chair');
             let selectedChair = null;
 
