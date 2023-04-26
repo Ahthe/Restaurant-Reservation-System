@@ -57,18 +57,18 @@
             font-weight: bold;
             border: 1px solid transparent;
             border-radius: 4px;
-            background-color: orangered;
+            background-color: #6a0bd7;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease-in-out;
         }
 
         .button:hover {
-            background-color: darkorange;
+            background-color: #6a0bd7;
         }
 
     #apply-config {
-        background-color: purple;
+        background-color: #6a0bd7;
     }
 
         #apply-config:hover {
@@ -217,6 +217,8 @@
            }
 
        }
+
+
         
 </style>
    
@@ -234,7 +236,6 @@
       <ul>
           <li><a href="Avaliability.aspx">Home</a></li>
           <li><a href="Admin.aspx">Admin</a></li>
-          <li><a href="TeamBlog.html">About</a></li>
           <li><a href="CancelReservation.aspx">Cancel a Reservation</a></li>
           <li><a href="RestaurantLayout.aspx">Configration</a></li>
     </ul>

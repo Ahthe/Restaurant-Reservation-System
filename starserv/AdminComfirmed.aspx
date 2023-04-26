@@ -163,6 +163,31 @@
            }
 
        }
+
+    @media (max-width: 480px) {
+        .restaurant-layout {
+            flex-direction: column;
+        }
+
+        .table {
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 768px) {
+        .table {
+            margin-right: 50px;
+            margin-left: 50px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .table {
+            margin-right: 80px;
+            margin-left: 80px;
+        }
+    }
         
     </style>
 
