@@ -67,6 +67,14 @@
             background-color: darkorange;
         }
 
+    #apply-config {
+        background-color: purple;
+    }
+
+        #apply-config:hover {
+            background-color: mediumpurple;
+        }
+
     
         /*For Navigation Bar */
         :root {
@@ -241,24 +249,22 @@
         </nav>
         <%-- end of the navigation bar --%>
  
-        <div id="config-panel">
+<div id="config-panel">
     <h2>Configuration</h2>
     <label for="num-tables">Number of tables:</label>
     <input type="number" id="num-tables" min="1" value="1"/>
     <label for="num-chairs">Chairs per table:</label>
     <input type="number" id="num-chairs" min="1" value="1"/>
     <button id="apply-config" class="button">Apply Configuration</button>
+    <button id="reserve-chair" class="button">Reserve Chair</button>
 </div>
-
 
       
         <div id="restaurant-layout-container">
     <div class="restaurant-layout"></div>
 </div>
         
-        <br />
-        <button id="confirm-button" class="button">Confirm Reservation</button>
-        <br />
+      
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
         <br />
     </form>
@@ -266,12 +272,17 @@
 
     <script>
         async function loadLayout() {
+            let layoutData;
+
             try {
-                const response = await fetch('layout.json');
-                if (!response.ok) {
-                    throw new Error('Error loading layout.json');
+                const storedData = localStorage.getItem('layoutData');
+                if (storedData) {
+                    layoutData = JSON.parse(storedData);
+                } else {
+                    // Fallback to default layout or load from layout.json
+                    layoutData = { tables: [] };
                 }
-                const layoutData = await response.json();
+
                 createLayout(layoutData);
             } catch (error) {
                 console.error('Error:', error);
@@ -321,6 +332,10 @@
                 }))
             };
 
+            // Save layoutData to local storage
+            localStorage.setItem('layoutData', JSON.stringify(layoutData));
+
+
             // Remove existing layout
             const restaurantLayout = document.querySelector('.restaurant-layout');
             restaurantLayout.innerHTML = '';
@@ -330,11 +345,10 @@
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-
             document.querySelector('#apply-config').addEventListener('click', applyConfig);
 
             const chairs = document.querySelectorAll('.chair');
-            let selectedChair = null;
+            let selectedChairs = [];
 
             chairs.forEach(chair => {
                 chair.addEventListener('click', function () {
@@ -343,28 +357,42 @@
                         return;
                     }
 
-                    if (selectedChair) {
-                        selectedChair.classList.remove('selected');
+                    if (this.classList.contains('selected')) {
+                        this.classList.remove('selected');
+                        selectedChairs = selectedChairs.filter(selected => selected !== this);
+                    } else {
+                        this.classList.add('selected');
+                        selectedChairs.push(this);
                     }
-
-                    this.classList.add('selected');
-                    selectedChair = this;
                 });
             });
 
-            const confirmButton = document.querySelector('#confirm-button');
-            confirmButton.addEventListener('click', function () {
-                if (!selectedChair) {
-                    alert('Please select a chair before confirming your reservation.');
+            document.querySelector('#reserve-chair').addEventListener('click', function () {
+                if (selectedChairs.length === 0) {
+                    alert('Please select at least one chair before reserving.');
                     return;
                 }
 
-                selectedChair.classList.remove('selected');
-                selectedChair.classList.add('reserved');
-                selectedChair.innerHTML = '<span style="color: red;">R</span>';
-                selectedChair = null;
+                selectedChairs.forEach(chair => {
+                    chair.classList.remove('selected');
+                    chair.classList.add('reserved');
+                    chair.innerHTML = '<span style="color: red;">R</span>';
+                });
+
+                // Save layoutData to local storage
+                const layoutData = {
+                    tables: Array.from(document.querySelectorAll('.table'), table => ({
+                        chairs: Array.from(table.querySelectorAll('.chair'), chair => ({
+                            status: chair.classList.contains('reserved') ? 'reserved' : 'available'
+                        }))
+                    }))
+                };
+                localStorage.setItem('layoutData', JSON.stringify(layoutData));
+
+                selectedChairs = [];
             });
         });
+
 
         loadLayout();
     </script>
