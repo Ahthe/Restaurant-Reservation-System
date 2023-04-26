@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RestaurantLayout.aspx.cs" Inherits="starserv.RestaurantLayout" %>
 
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <title>Resturant Layout Configuration</title>
 <style>
 
     body{
@@ -209,46 +212,7 @@
         
 </style>
    
-<script>
-       document.addEventListener('DOMContentLoaded', function () {
-    const chairs = document.querySelectorAll('.chair');
-    let selectedChair = null;
 
-    chairs.forEach(chair => {
-        chair.addEventListener('click', function () {
-            if (this.classList.contains('reserved')) {
-                alert('This chair is already reserved. Please choose another chair.');
-                return;
-            }
-
-            if (selectedChair) {
-                selectedChair.classList.remove('selected');
-            }
-
-            this.classList.add('selected');
-            selectedChair = this;
-        });
-    });
-
-    const confirmButton = document.querySelector('#confirm-button');
-    confirmButton.addEventListener('click', function () {
-        if (!selectedChair) {
-            alert('Please select a chair before confirming your reservation.');
-            return;
-        }
-
-        selectedChair.classList.remove('selected');
-        selectedChair.classList.add('reserved');
-        selectedChair.innerHTML = '<span style="color: red;">R</span>'; // Change this line
-        selectedChair = null;
-    });
-});
-</script>
- 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -277,57 +241,101 @@
         </nav>
         <%-- end of the navigation bar --%>
  
-       
-
-        <div>
-            <div class="restaurant-layout">
-    <div class="table">
-        <div class="chair">C1</div>
-        <div class="chair">C2</div>
-        <div class="chair">C3</div>
-        <div class="chair">C4</div>
-    </div>
-    <div class="table">
-        <div class="chair">C1</div>
-        <div class="chair">C2</div>
-        <div class="chair">C3</div>
-        <div class="chair">C4</div>
-    </div>
-    <div class="table">
-        <div class="chair">C1</div>
-        <div class="chair">C2</div>
-        <div class="chair">C3</div>
-        <div class="chair">C4</div>
-    </div>
-    <div class="table">
-        <div class="chair">C1</div>
-        <div class="chair">C2</div>
-        <div class="chair">C3</div>
-        <div class="chair">C4</div>
-    </div>
-    <div class="table">
-        <div class="chair">C1</div>
-        <div class="chair">C2</div>
-        <div class="chair">C3</div>
-        <div class="chair">C4</div>
-        <div class="chair">C5</div>
-        <div class="chair">C6</div>
-    </div>
-    <div class="table">
-        <div class="chair">C1</div>
-        <div class="chair">C2</div>
-        <div class="chair">C3</div>
-        <div class="chair">C4</div>
-    </div>
+      
+        <div id="restaurant-layout-container">
+    <div class="restaurant-layout"></div>
 </div>
+        
         <br />
-  <button id="confirm-button" class="button">Confirm Reservation</button>
-  <br />
-  <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-  <br />
-</div>
-
+        <button id="confirm-button" class="button">Confirm Reservation</button>
+        <br />
+        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+        <br />
     </form>
-    
+
+
+    <script>
+        async function loadLayout() {
+            try {
+                const response = await fetch('layout.json');
+                if (!response.ok) {
+                    throw new Error('Error loading layout.json');
+                }
+                const layoutData = await response.json();
+                createLayout(layoutData);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        function createLayout(layoutData) {
+            const restaurantLayout = document.querySelector('.restaurant-layout');
+            layoutData.tables.forEach((table, index) => {
+                const tableElement = createTable(index + 1, table.chairs);
+                restaurantLayout.appendChild(tableElement);
+            });
+        }
+
+        function createTable(id, chairs) {
+            const table = document.createElement('div');
+            table.className = 'table';
+
+            chairs.forEach((chair, index) => {
+                const chairElement = createChair(index + 1, chair.status);
+                table.appendChild(chairElement);
+            });
+
+            return table;
+        }
+
+        function createChair(id, status) {
+            const chair = document.createElement('div');
+            chair.className = 'chair';
+            chair.textContent = `C${id}`;
+
+            if (status === 'reserved') {
+                chair.classList.add('reserved');
+                chair.innerHTML = '<span style="color: red;">R</span>';
+            }
+
+            return chair;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const chairs = document.querySelectorAll('.chair');
+            let selectedChair = null;
+
+            chairs.forEach(chair => {
+                chair.addEventListener('click', function () {
+                    if (this.classList.contains('reserved')) {
+                        alert('This chair is already reserved. Please choose another chair.');
+                        return;
+                    }
+
+                    if (selectedChair) {
+                        selectedChair.classList.remove('selected');
+                    }
+
+                    this.classList.add('selected');
+                    selectedChair = this;
+                });
+            });
+
+            const confirmButton = document.querySelector('#confirm-button');
+            confirmButton.addEventListener('click', function () {
+                if (!selectedChair) {
+                    alert('Please select a chair before confirming your reservation.');
+                    return;
+                }
+
+                selectedChair.classList.remove('selected');
+                selectedChair.classList.add('reserved');
+                selectedChair.innerHTML = '<span style="color: red;">R</span>';
+                selectedChair = null;
+            });
+        });
+
+        loadLayout();
+    </script>
 </body>
 </html>
