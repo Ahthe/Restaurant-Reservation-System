@@ -282,7 +282,7 @@
     <label for="num-chairs">Chairs per table:</label>
     <input type="number" id="num-chairs" min="1" value="1"/>
     <button id="apply-config" class="button">Apply Configuration</button>
-    <button id="reserve-chair" class="button">Reserve Chair</button>
+  <%--  <button id="reserve-chair" class="button">Reserve Chair</button>--%>
 </div>
 
       
