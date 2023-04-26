@@ -217,20 +217,81 @@
 
    }
 
-   /* Responsive styling */
-   @media (max-width: 768px) {
-       .information-container {
-           width: 90%;
-           margin-left: auto;
-           margin-right: auto;
-       }
+/* Mobile phones (portrait) */
+        @media (max-width: 480px) {
+            .information-container {
+                width: 100%;
+                padding: 15px;
+            }
 
-       .bottom-right-image {
-           width: 50%;
-           bottom: 10px;
-           right: 10px;
-       }
-   }
+            .container2 {
+                padding-left: 8px;
+                padding-right: 16px;
+            }
+
+            .bottom-right-image {
+                width: 40%;
+                bottom: 5px;
+                right: 5px;
+            }
+        }
+
+        /* Mobile phones (landscape) and tablets (portrait) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .information-container {
+                width: 90%;
+            }
+
+            .container2 {
+                padding-left: 12px;
+                padding-right: 24px;
+            }
+
+            .bottom-right-image {
+                width: 50%;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        /* Tablets (landscape) and small desktops */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .information-container {
+                width: 80%;
+            }
+
+            .container2 {
+                padding-left: 16px;
+                padding-right: 32px;
+            }
+
+            .bottom-right-image {
+                width: 60%;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        /* Large desktops */
+        @media (min-width: 1025px) {
+            .information-container {
+                width: 80%;
+            }
+
+            .container2 {
+                padding-left: 16px;
+                padding-right: 32px;
+            }
+
+            .bottom-right-image {
+                width: 800px; /* Adjust the width as desired */
+                height: auto; /* Maintain the aspect ratio */
+                z-index: 10; /* Make sure the image is above other content */
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
     
 </style>
 

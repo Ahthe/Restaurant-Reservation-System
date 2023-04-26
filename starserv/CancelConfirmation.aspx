@@ -47,14 +47,38 @@
         .navigation li a:hover {
             background-color: #111;
         }
-        @media screen and (max-width: 600px) {
-            .container {
-                margin: 10px;
-                padding: 15px;
+        @media(min-width: 768px) {
+            .hamburger {
+                display: none;
             }
-            .navigation li {
-                flex: 1 1 100%;
-                text-align: center;
+
+            .menu {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .restaurant-layout {
+                flex-direction: column;
+            }
+
+            .table {
+                margin-right: 30px;
+                margin-left: 30px;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .table {
+                margin-right: 50px;
+                margin-left: 50px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .table {
+                margin-right: 80px;
+                margin-left: 80px;
             }
         }
     </style>

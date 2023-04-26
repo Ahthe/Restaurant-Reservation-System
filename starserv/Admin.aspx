@@ -209,6 +209,44 @@
            }
 
        }
+
+       
+        /* Mobile phones (landscape) and tablets (portrait) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .content {
+                padding-top: 150px;
+            }
+
+            .login-form {
+                width: 70%;
+                padding: 64px;
+            }
+        }
+
+        /* Tablets (landscape) and small desktops */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .content {
+                padding-top: 200px;
+            }
+
+            .login-form {
+                width: 50%;
+                padding: 96px;
+            }
+        }
+
+        /* Large desktops */
+        @media (min-width: 1025px) {
+            .content {
+                padding-top: 300px;
+            }
+
+            .login-form {
+                width: 600px;
+                padding: 116px;
+            }
+        }
+
         
     </style>
 
