@@ -311,6 +311,7 @@
     </script>
  
 </head>
+</head>
 <body>
      <%-- for the Navigation Bar  --%>        
         <nav>

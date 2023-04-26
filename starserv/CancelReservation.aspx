@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <style>
-         body {
+        body {
             font-family: 'Fira sans', sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -14,16 +14,12 @@
         }
 
         .information-container {
-            width: 50%;
+            width: 80%;
             margin: 50px auto;
-            background-color: #f4f4f4; 
-           /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);*/
+            background-color: #f4f4f4;
             border-radius: 5px;
             padding: 20px;
-            margin-left: 500px;
             margin-top: 150px;
-            
-            
         }
 
         .information-container h2 {
@@ -81,9 +77,7 @@
            z-index: 10; /* Make sure the image is above other content */
         }
 
-    
-    
-         /*For Navigation Bar */
+        /*For Navigation Bar */
         :root {
             --primary: #8c38ff;
             --light: #EEEEEE;
@@ -95,7 +89,6 @@
            padding: 0;
            box-sizing: border-box;
            font-family: 'Fira sans', sans-serif;
-           
         }
 
         .container2 {
@@ -117,154 +110,164 @@
             background-color: var(--dark);
             padding: 16px 32px;
             border-bottom: 3px solid var(--primary);
-
         }
 
         h1{
             color:#FFF;
             font-size: 28px;
-            font-weight: 900;
+            font-weight: 900
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-right: auto;
         }
 
-        .hamburger{
-            display: block;
-            position: relative;
-            z-index: 1;
+    .hamburger{
+        display: block;
+        position: relative;
+        z-index: 1;
 
-            user-select:none;
+        user-select:none;
 
-            appearance: none;
-            border: none;
-            outline: none;
-            background: none;
-            cursor: pointer;
-            
-        }
+        appearance: none;
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+        
+    }
 
-        .hamburger span{
-            display: block;
-            width: 33px;
-            height: 4px;
-            margin-bottom: 5px;
-            position: relative;
+    .hamburger span{
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
 
-            background-color: var(--light);
-            border-radius: 6px;
-            z-index: 1;
+        background-color: var(--light);
+        border-radius: 6px;
+        z-index: 1;
 
-            transform-origin: 0 0;
-            transition: 0.4s;
+        transform-origin: 0 0;
+        transition: 0.4s;
 
-        }
+    }
 
-        .hamburger:hover span:nth-child(2){
-            transform: translateX(10px);
-            background-color:var(--primary);
-        }
+    .hamburger:hover span:nth-child(2){
+        transform: translateX(10px);
+        background-color:var(--primary);
+    }
 
-        .hamburger.is-active span:nth-child(1){
-            transform:translate(0px, -2px) rotate(45deg);
-        }
+    .hamburger.is-active span:nth-child(1){
+        transform:translate(0px, -2px) rotate(45deg);
+    }
 
-        .hamburger.is-active span:nth-child(2){
-            opacity: 0;
-            transform: translateX(15px);
-        }
+    .hamburger.is-active span:nth-child(2){
+        opacity: 0;
+        transform: translateX(15px);
+    }
 
-        .hamburger.is-active span:nth-child(3){
-            transform:translate(-3px, 3px) rotate(-45deg);
-        }
+    .hamburger.is-active span:nth-child(3){
+        transform:translate(-3px, 3px) rotate(-45deg);
+    }
 
-        .hamburger.is-active:hover span {
-            background-color:var(--primary);
-        }
+    .hamburger.is-active:hover span {
+        background-color:var(--primary);
+    }
 
-        .menu {
-          display: none;
-          flex: 1 1 0%;
-          justify-content: flex-end;
-          margin: 0 -16px;
+    .menu {
+      display: none;
+      flex: 1 1 0%;
+      justify-content: flex-end;
+      margin: 0 -16px;
 
-          margin-left: auto;
-        }
-        .menu ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-          display: flex;
-        }
+      margin-left: auto;
+    }
+    .menu ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
 
-        .menu li {
-          margin-right: 16px;
-        }
+    .menu li {
+      margin-right: 16px;
+    }
 
-        .menu a{
-            color: #FFF;
-            margin: 0 16px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.4s;
-            padding: 8px 16px;
-            border-radius: 99px;
-        }
+    .menu a{
+        color: #FFF;
+        margin: 0 16px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.4s;
+        padding: 8px 16px;
+        border-radius: 99px;
+    }
 
-        .menu a.is-active, .menu a:hover {
-            background-color: var(--primary);
-        }
+    .menu a.is-active, .menu a:hover {
+        background-color: var(--primary);
+    }
 
-       @media(min-width: 768px){
-           .hamburger{
-               display: none;
-           }
-           .menu{
-               display: flex;
-           }
-
+   @media(min-width: 768px){
+       .hamburger{
+           display: none;
        }
-        
-    </style>
+       .menu{
+           display: flex;
+       }
 
-    <script>
-        const hamburger = document.querySelector('.hamburger');
+   }
 
-        hamburger.addEventListener('click', function () {
-            this.classList.toggle('is-active');
-        });
-    </script>
+   /* Responsive styling */
+   @media (max-width: 768px) {
+       .information-container {
+           width: 90%;
+           margin-left: auto;
+           margin-right: auto;
+       }
 
-        
+       .bottom-right-image {
+           width: 50%;
+           bottom: 10px;
+           right: 10px;
+       }
+   }
+    
+</style>
 
-    <link rel="stylesheet" href="NavigationStyleSheet.css" />
-</head>
+<script>
+    const hamburger = document.querySelector('.hamburger');
+
+    hamburger.addEventListener('click', function () {
+        this.classList.toggle('is-active');
+    });
+</script>
+
+    </head>
 <body>
 
-    <%-- for the Navigation Bar  --%>        
-        <nav>
-          <div class="container2">
-          <h1>Star Serve</h1>
-      
-          <div class="menu">    
-      <ul>
-          <li><a href="Avaliability.aspx">Home</a></li>
-          <li><a href="Admin.aspx">Admin</a></li>
-          <li><a href="TeamBlog.html">About</a></li>
-          <li><a href="CancelReservation.aspx">Cancel a Reservation</a></li>
-          <li><a href="RestaurantLayout.aspx">Configration</a></li>
-    </ul>
+<%-- for the Navigation Bar  --%>        
+    <nav>
+      <div class="container2">
+      <h1>Star Serve</h1>
+  
+      <div class="menu">    
+  <ul>
+      <li><a href="Avaliability.aspx">Home</a></li>
+      <li><a href="Admin.aspx">Admin</a></li>
+      <li><a href="TeamBlog.html">About</a></li>
+      <li><a href="CancelReservation.aspx">Cancel a Reservation</a></li>
+      <li><a href="RestaurantLayout.aspx">Configration</a></li>
+</ul>
 
-    </div>
-              <button class="hamburger">
-              <span></span>
-              <span></span>
-              <span></span>
-          </button>
-         </div>
-        </nav>
-        <%-- end of the navigation bar --%>
-
+</div>
+          <button class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+     </div>
+    </nav>
+    <%-- end of the navigation bar --%>
    <form id="form1" runat="server">
         <div class="information-container">
             <h2>Cancel Reservation</h2>
@@ -297,3 +300,9 @@
    </form>
 </body>
 </html>
+
+
+
+
+
+
